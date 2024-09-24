@@ -22,7 +22,10 @@
                     }.bind(this));
                 },
             });
-        </script>
+            nextFrame: function nextFrame() {
+                this.__clearCanvas();
+                this.__draw();}
+                </script>
     </head>
 
     <body style="margin: 0; overflow: hidden;">
