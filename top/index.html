@@ -5,9 +5,35 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+        <style>
+            .arjs-loader {
+              height: 100%;
+              width: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background-color: rgba(0, 0, 0, 0.8);
+              z-index: 9999;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .arjs-loader div {
+              text-align: center;
+              font-size: 1.25em;
+              color: white;
+            }
+          </style>
+          
     </head>
 
     <body style="margin: 0; overflow: hidden;">
+        <div class="arjs-loader">
+            <div>Loading, please wait...</div>
+          </div>
+
         <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: false;"
@@ -16,7 +42,7 @@
             embedded
             gesture-detector
         >
-            <a-marker
+            <!-- <a-marker
                 id="animated-marker"
                 type="pattern"
                 preset="custom"
@@ -25,14 +51,21 @@
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
-            >
-                <a-image
-                    src="assets/asset.gif"
-                    scale="1 1 1"
-                    class="clickable"
-                    rotation="-90 0 0"
-                    gesture-handler
-                ></a-image>
+            > -->
+                    <a-nft
+                    type="nft"
+                    url="assets/img"
+                    smooth="true"
+                    smoothCount="10"
+                    smoothTolerance=".01"
+                    smoothThreshold="5"
+                    >
+                    <a-entity
+                    gltf-model="assets/assets.gif"
+                    scale="5 5 5"
+                    position="50 150 0"
+                    >
+                    </a-entity>
             </a-marker>
 
             <a-entity camera></a-entity>
